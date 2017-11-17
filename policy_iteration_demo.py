@@ -71,7 +71,7 @@ def policy_iteration(env, gamma = 1.0):
 
 if __name__ == '__main__':
     env_name  = 'FrozenLake8x8-v0'
-    env = gym.make(env_name)
+    env = gym.make(env_name).unwrapped
     optimal_policy = policy_iteration(env, gamma = 1.0)
     scores = evaluate_policy(env, optimal_policy, gamma = 1.0)
     print('Average scores = ', np.mean(scores))

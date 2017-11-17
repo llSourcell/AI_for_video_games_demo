@@ -75,7 +75,7 @@ def value_iteration(env, gamma = 1.0):
 if __name__ == '__main__':
     env_name  = 'FrozenLake8x8-v0'
     gamma = 1.0
-    env = gym.make(env_name)
+    env = gym.make(env_name).unwrapped
     optimal_v = value_iteration(env, gamma);
     policy = extract_policy(optimal_v, gamma)
     policy_score = evaluate_policy(env, policy, gamma, n=1000)
